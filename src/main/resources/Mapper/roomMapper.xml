@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 게시판 처리 SQL -->
+<mapper namespace="com.scit.chat.dao.roomMapper">
+	<insert id="insertRoom" parameterType="Room">
+	insert into ROOMINFO
+	(ROOMSEQ, USERID, USERNAME, TITLE, INDATE)
+	values
+	(SEQ_ROOM.nextval,
+	#{id},
+	null,
+	#{title},
+	SYSDATE)	
+	</insert>
+	
+	<select id="selectAllRoom" resultType="Room">
+	select ROOMSEQ, USERID as "id", USERNAME, TITLE, INDATE
+	FROM ROOMINFO
+	order by ROOMSEQ DESC
+	</select>
+
+</mapper>

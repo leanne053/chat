@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.scit.chat.vo.User" alias="User" />
+		<typeAlias type="com.scit.chat.vo.Room" alias="Room" />
+		<typeAlias type="com.scit.chat.vo.Chat" alias="Chat" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="Mapper/userMapper.xml" />
+		<mapper resource="Mapper/roomMapper.xml" />
+		<mapper resource="Mapper/chatMapper.xml" />
+	</mappers>
+</configuration>

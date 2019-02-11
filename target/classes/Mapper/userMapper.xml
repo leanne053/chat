@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 게시판 처리 SQL -->
+<mapper namespace="com.scit.chat.dao.userMapper">
+	<insert id="insertUser" parameterType="User">
+	insert into USERINFO
+	(USERID, USERPW, USERNAME)
+	values
+	(#{id}, #{pw}, #{name})
+	
+	</insert>
+	
+	<select id="checkUser" resultType="String" parameterType="User">
+	select 
+	USERID, USERPW, USERNAME
+	from USERINFO
+	where
+	USERID=#{id} and USERPW=#{pw}
+	
+	</select>
+	<select id="checkId" resultType="String" parameterType="String">
+	select
+	USERID
+	from USERINFO
+	where USERID=#{id}
+	</select>
+
+	<select id="checkName" resultType="String" parameterType="String">
+	select
+	USERNAME
+	from USERINFO
+	where USERID=#{id}
+	</select>	
+
+</mapper>
