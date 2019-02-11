@@ -22,7 +22,7 @@ public class chatController {
 	@RequestMapping(value="/selectChat", method=RequestMethod.GET)
 	public @ResponseBody ArrayList<Chat> selectChat(String roomseq) {
 		ArrayList<Chat> chatList=dao.selectChat(roomseq);
-//		System.out.println(roomseq);
+		System.out.println(roomseq);
 		return chatList;
 	}
 	
