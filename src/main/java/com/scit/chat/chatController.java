@@ -37,6 +37,7 @@ public class chatController {
 	@RequestMapping(value="/insertChat", method=RequestMethod.POST)
 	public String insertChat(Chat chat, HttpSession session, Model model) {
 		//목록가져오기
+		System.out.println("!!");//
 		String visitorId= (String)session.getAttribute("visitorId");
 		chat.setVisitorId(visitorId);
 		

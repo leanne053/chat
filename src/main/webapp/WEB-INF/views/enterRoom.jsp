@@ -10,9 +10,7 @@
 <title>chatting room</title>
 </head>
 <script>
-	function ready() {
-		document.getElementById("message").focus();
-	}
+	
 	setInterval(
 			
 	function ajaxTest() {
@@ -37,20 +35,31 @@
 	}
 	,1000
 	);
+	
+	function formSubmit(){
+		 $.ajax({     
+			 url: "insertChat",
+			 data: { "roomseq": ${roomseq},
+				         "message":document.getElementById("message").value},
+			 type: "post",
+			 success:function(){
+				 document.getElementById("message").focus();
+				 document.getElementById("message").value;
+			 }
+		 });
+		}
+	
 </script>
-<body onload="javascript:ready()">
+<body>
 	<h1>Hello buddy!</h1>
-	<button onclick="ajaxTest(${roomseq})">테스트</button>
 	<div id="messageList">
-		
 	
 	</div>
 	
-	<form action="insertChat" method="post">
 		<input type="hidden" name="roomseq" value="${roomseq}">
-		MESSAGE:<input type="text" id="message" name="message"> <input
-			type="submit" value="전송">
-	</form>
+		MESSAGE:<input type="text" id="message" name="message"> 
+		<input type="button" onclick="formSubmit()" value="전송">
+	<!-- </form> -->
 
 	<a href="chattingList">채팅방나가기</a>
 
