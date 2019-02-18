@@ -17,7 +17,7 @@ import com.scit.chat.vo.Chat;
 @Controller
 public class chatController {
 	@Autowired
-	chatDAO dao;
+	chatDAO dao;	
 
 	@RequestMapping(value="/selectChat", method=RequestMethod.GET)
 	public @ResponseBody ArrayList<Chat> selectChat(String roomseq) {
@@ -29,6 +29,7 @@ public class chatController {
 	@RequestMapping(value="/enterRoom", method=RequestMethod.GET)
 	public String enterRoom(String roomseq, Model model) {
 		//목록가져오기
+		
 		model.addAttribute("roomseq", roomseq);
 		
 		return "enterRoom";
